@@ -9,6 +9,10 @@
   </head>
 
   <body>
+    <% if flash[:errors] %>
+      <p><%= flash[:errors].join(", ") %></p>
+    <% end %>
+
     <% if current_user %>
     <form action="<%= session_url %>" method="POST">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

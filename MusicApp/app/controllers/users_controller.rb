@@ -10,8 +10,8 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to bands_url
     else
-      flash[:errors] << "Invalid credentials"
-      redirect_to new_user_url
+      flash[:errors] = @user.errors.full_messages
+      render :new
     end
   end
 
